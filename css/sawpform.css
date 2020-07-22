@@ -1,0 +1,62 @@
+.linie {
+	font-family: Courier New, Courier;
+	font-size: 12px;
+}
+
+small {
+	font-size: 10px;
+}
+
+.kom {
+	color: #c0c0c0;
+}
+
+.o {
+	color: black;
+}
+
+.u {
+	font-weight: bold;
+}
+
+.n {
+	font-weight: bold;
+	color: darkred;
+}
+
+.a {
+	font-weight: bold;
+	color: navy;
+}
+
+.d, .t, .w {
+	color: #909090;
+}
+
+.dolar {
+	color: #B8860B;
+}
+
+H1 {
+	margin-bottom: 0px;
+}
+
+.wersja {
+	margin-bottom: 5px;
+}
+
+TEXTAREA#posttresc {
+	width: 100%;
+	background-color: #d0d0d0;
+	height: calc(100% - 175px);
+	min-height: 100px;
+}
+
+#stopka {
+	background-color: #f0f0f0;
+}
+
+INPUT#wszystkofile {
+	width: 50%;
+	background-color: #e0e0e0;
+}
