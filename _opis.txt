@@ -1,0 +1,105 @@
+﻿##########################################################################################
+#
+# SAWPFORM v. 3.00
+# 12 września 2019 r.
+# [ąćęłńóśżźĄĆĘŁŃÓŚŻŹ]
+#
+# (c) Kamil Barański / http://kamilbaranski.com/
+# oczywiście nothing guaranteed, use at own risk
+#
+# Skrypt wypełniający "Formularz deklaracyjny artystycznego wykonania utworu muzycznego"
+# dla Stowarzyszenia Artystów Wykonawców Utworów Muzycznych i Słowno-Muzycznych SAWP.
+#
+##########################################################################################
+#
+# todo:
+# - 1. Pierwszy utwór|cz:as|Drugi utwór|cz:as|Trzeci utwór|cz:as (--> i wtedy tabelka na drugiej stronie)
+# - -:jw (artyści jak w poprzednim utworze)
+# - import z arkusza kalkulacyjnego?
+# - ustawialna data wypełniania?
+# - pełne wsparcie dla UTF8 (obecnie znaki specjalne UTF są konwertowane do windows-1250)
+#
+# znane błędy:
+# - po znakach [ż], [Ż] pojawia się spacja.
+# 
+##########################################################################################
+#
+# Krótko o formacie pliku wejściowego:
+#
+##########################################################################################
+#
+# # komentarz
+#			wszystkie linie zaczynające się od "#" lub krótsze niż 2 znaki
+#			(po obustronnym trimie) są opuszczane.
+#
+# N:nazwa koncertu/programu tv
+# 			zostaje na następne utwory, czyli wystarczy zadeklarować
+#			na początku i przy zmianach
+#
+# A:artysta
+# D:data
+# F:fonogram
+# V:videogram
+# P:nazwa producenta
+# K:nr katalogowy
+# Y:czy fonogram, videogram został wprowadzony do obrotu handlowego (YT/cokolwiekinnego)
+# 			zostaje jw.
+#
+# T:typ (S/I/P/M: Sygnał, utwór Instrumentalny, Piosenka, Muzyka ilustracyjna)
+# 			zostaje jw.; można łączyć, np. "T:SI" czyli "sygnał instrumentalny"
+#
+# W:rodzajwykonania (A/Z: nagranie Archiwalne, rejestracja na Zywo)
+#			zostaje jw.; można łączyć
+#
+# $:kompozytor|autortekstu
+#			nie zostaje. kolejni zwyczajowo rozdzieleni ", "
+#
+# - wykonawca - leadvoc, leadinstr, md, solo, bgvoc, instrument, inny instrument
+#           pola są rozdzielane stringiem ", " czyli przecinek i spacja.
+#
+# każda inna linia jest traktowana jako:
+#
+# 1. Tytuł utworu|czas:trwania
+#			(czas trwania opcjonalny; numer i ". " jest ucinany i nieistotny)
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+#
+# dodatkowe wyjątki:
+# A:lead
+#			daje "A:wykonawca/y z leadvoc lub leadinstr w danym utworze"
+# A:leadvoc
+#			daje "A:wykonawca/y z leadvoc w danym utworze"
+# A:leadinstr
+#			daje "A:wykonawca/y z leadinstr w danym utworze"
+# - wykonawcaA, wykonawcaB! - bgvoc
+#			daje "wykonawcaA, wykonawcaB x5 - bgvoc"
+# - kb - cośtam
+#			daje "Kamil Barański - cośtam" (można łączyć -> - kb! - cośtam)
+#
+##########################################################################################
+#
+# Niektóre rzeczy trzeba ustawiać PRZED tytułem (NDTAWFVPKY), niektóre PO (np. autorów).
+# W jednym zgłoszeniu może być dużo utworów. Powodzenia!
+#
+##########################################################################################
+
+N:nazwa programu tv
+D:29.09.2010
+T:P
+A:lead
+W:Z
+F:nazwa płyty
+V:nazwa teledysku
+P:nazwa producenta
+K:CD001
+Y:N
+
+1. Tytuł piosenki|3:15
+$:kompozytorzy|autorzy tekstu
+- Kaja Karaplios - leadvoc
+- Kamil Barański - kbd, md, solo
+- Piotr Franczak - git
+- Paweł Rozmarynowski - bs
+- Michał Maliński - dr
+- ktoś, ktoś inny, jeszcze inny - bgvoc
+
