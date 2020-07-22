@@ -1,0 +1,256 @@
+﻿##########################################################################################
+#
+# SAWPFORM v. 2.00
+# 5 października 2013 r.
+#
+# (c) Kamil Barański / http://kamilbaranski.com/
+# oczywiście nothing guaranteed, use at own risk
+#
+# Skrypt wypełniający "Formularz deklaracyjny artystycznego wykonania utworu muzycznego"
+# dla Stowarzyszenia Artystów Wykonawców Utworów Muzycznych i Słowno-Muzycznych SAWP.
+#
+##########################################################################################
+#
+# todo:
+# - 1. Pierwszy utwór|cz:as|Drugi utwór|cz:as|Trzeci utwór|cz:as (--> i wtedy tabelka na drugiej stronie)
+# - -:jw (artyści jak w poprzednim utworze)
+# - import z arkusza kalkulacyjnego?
+# - ustawialna data wypełniania?
+#
+##########################################################################################
+#
+# Krótko o formacie pliku wejściowego:
+#
+##########################################################################################
+#
+# # komentarz
+#			wszystkie linie zaczynające się od "#" lub krótsze niż 2 znaki
+#			(po obustronnym trimie) są opuszczane.
+#
+# N:nazwa koncertu/programu tv
+# 			zostaje na następne utwory, czyli wystarczy zadeklarować
+#			na początku i przy zmianach
+#
+# A:artysta
+# D:data
+# F:fonogram
+# V:videogram
+# P:nazwa producenta
+# K:nr katalogowy
+# Y:czy fonogram, videogram został wprowadzony do obrotu handlowego (YT/cokolwiekinnego)
+# 			zostaje jw.
+#
+# T:typ (S/I/P/M: Sygnał, utwór Instrumentalny, Piosenka, Muzyka ilustracyjna)
+# 			zostaje jw.; można łączyć, np. "T:SI" czyli "sygnał instrumentalny"
+#
+# W:rodzajwykonania (A/Z: nagranie Archiwalne, rejestracja na Zywo)
+#			zostaje jw.; można łączyć
+#
+# $:kompozytor|autortekstu
+#			nie zostaje. kolejni zwyczajowo rozdzieleni ", "
+#
+# - wykonawca - leadvoc, leadinstr, md, solo, bgvoc, instrument, inny instrument
+#           pola są rozdzielane stringiem ", " czyli przecinek i spacja.
+#
+# każda inna linia jest traktowana jako:
+#
+# 1. Tytuł utworu|czas:trwania
+#			(czas trwania opcjonalny; numer i ". " jest ucinany i nieistotny)
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+#
+# dodatkowe wyjątki:
+# A:lead
+#			daje "A:wykonawca/y z leadvoc lub leadinstr w danym utworze"
+# A:leadvoc
+#			daje "A:wykonawca/y z leadvoc w danym utworze"
+# A:leadinstr
+#			daje "A:wykonawca/y z leadinstr w danym utworze"
+# - wykonawcaA, wykonawcaB! - bgvoc
+#			daje "wykonawcaA, wykonawcaB x5 - bgvoc"
+# - kb - cośtam
+#			daje "Kamil Barański - cośtam" (można łączyć -> - kb! - cośtam)
+#
+##########################################################################################
+#
+# Niektóre rzeczy trzeba ustawiać PRZED tytułem (NDTAWFVPKY), niektóre PO (np. autorów).
+# W jednym zgłoszeniu może być dużo utworów. Powodzenia!
+#
+##########################################################################################
+
+N:Ach świecie
+D:2017
+T:P
+A:Maryla Rodowicz
+W:A
+F:Ach świecie
+V:
+P:Sony Music
+K:
+Y:T
+
+1. Hello|
+$:R. Sygitowicz|J. Cygan
+- Maryla Rodowicz - leadvoc
+- Sławek Uniatowski - leadvoc
+- Kamil Barański - kbd
+- Marcin Majerczyk - git, solo
+- Łukasz Dudewicz - bs
+- Michał Czwojda - dr
+- Maciej Muraszko - md
+- Anita Konca, Natalia Kaczorowska-Głowienka, Kasia Czernecka - bgvoc
+
+2. Ach świecie
+$:R. Gawliński|W. Łukaszewski
+- Maryla Rodowicz - leadvoc
+- Robert Gawliński - leadvoc
+- Kamil Barański - kbd
+- Marcin Majerczyk - git
+- Piotr Radecki - solo
+- Łukasz Dudewicz - bs
+- Michał Czwojda - dr
+- Maciej Muraszko - md
+- Anita Konca, Natalia Kaczorowska-Głowienka - bgvoc
+- Marcin Wyrostek - acc
+
+3. Cuda
+$:W. Łukaszewski|W. Łukaszewski
+- Maryla Rodowicz - leadvoc
+- Kayah - leadvoc
+- Kamil Barański - kbd
+- Marcin Majerczyk - git, solo
+- Łukasz Dudewicz - bs
+- Michał Czwojda - dr
+- Maciej Muraszko - md
+- Anita Konca, Natalia Kaczorowska-Głowienka, Kasia Czernecka - bgvoc
+- Mateusz Gidaszewski, Wojciech Czemplik, Julia Muraszko - strs
+- Tomasz Lisiecki - vc
+
+4. Las
+$:W. Łukaszewski|W. Łukaszewski
+- Maryla Rodowicz - leadvoc
+- Marcin Majerczyk - git, solo
+- Łukasz Dudewicz - bs
+- Michał Czwojda - dr
+- Maciej Muraszko - md
+- Kasia Czernecka - bgvoc
+- Tomasz Lisiecki - solo
+
+5. Przy stole siądź
+$:R. W. Łukaszewski|W. Łukaszewski
+- Maryla Rodowicz - leadvoc
+- Kuba Badach - leadvoc
+- Kamil Barański - kbd
+- Marcin Majerczyk - git, solo
+- Łukasz Dudewicz - bs
+- Michał Czwojda - dr
+- Maciej Muraszko - md
+- Anita Konca, Natalia Kaczorowska-Głowienka, Kasia Czernecka - bgvoc
+- Mateusz Gidaszewski, Wojciech Czemplik, Julia Muraszko - strs
+- Tomasz Lisiecki - vc
+
+6. Prośba
+$:W. Łukaszewski|W. Łukaszewski
+- Maryla Rodowicz - leadvoc
+- Kamil Barański - kbd
+- Marcin Majerczyk - git
+- Łukasz Dudewicz - bs
+- Michał Czwojda - dr
+- Maciej Muraszko - md
+- Anita Konca, Natalia Kaczorowska-Głowienka - bgvoc
+- Jacek Wąsowski - solo
+- Mateusz Gidaszewski, Wojciech Czemplik, Julia Muraszko - strs
+- Tomasz Lisiecki - vc
+
+7. Jeszcze nie czas
+$:R. Lipko|J. Cygan
+- Maryla Rodowicz - leadvoc
+- Kuba Badach - bgvoc
+- Kamil Barański - kbd
+- Marcin Majerczyk - git
+- Piotr Radecki - git
+- Łukasz Dudewicz - bs
+- Michał Czwojda - dr
+- Maciej Muraszko - md
+- Anita Konca, Natalia Kaczorowska-Głowienka - bgvoc
+- Marcin Wyrostek - acc
+# jest altówka raczej? czy też wiolonczela
+
+8. Ty na wszystkie dni
+$:W. Łukaszewski|W. Łukaszewski
+- Maryla Rodowicz - leadvoc
+- Kamil Barański - kbd
+- Marcin Majerczyk - git
+- Piotr Radecki - git
+- Łukasz Dudewicz - bs
+- Michał Czwojda - dr
+- Maciej Muraszko - md
+- Anita Konca, Natalia Kaczorowska-Głowienka, Kasia Czernecka - bgvoc
+- Paweł Pełczyński, Jakub Domański, Zbigniew Starosta - brass
+
+9. Spłukane serca
+$:W. Łukaszewski|W. Łukaszewski
+- Maryla Rodowicz - leadvoc
+- Marcin Majerczyk - git, solo
+- Łukasz Dudewicz - bs
+- Michał Czwojda - dr
+- Maciej Muraszko - md
+- Marcin Wyrostek - acc, solo
+
+V:W sumie nie jest źle (teledysk)
+10. W sumie nie jest źle
+$:W. Łukaszewski|W. Łukaszewski
+- Maryla Rodowicz - leadvoc
+- Kamil Barański - kbd
+- Marcin Majerczyk - git
+- Łukasz Dudewicz - bs
+- Michał Czwojda - dr
+- Maciej Muraszko - md
+- Anita Konca, Natalia Kaczorowska-Głowienka, Kasia Czernecka - bgvoc
+- Tomasz Lisiecki - solo
+
+V:
+11. Zajączek słońca
+$:A. Brzeski|A. Brzeski
+- Maryla Rodowicz - leadvoc
+- Marcin Majerczyk - git
+- Piotr Radecki - solo
+- Łukasz Dudewicz - bs
+- Michał Czwojda - dr
+- Maciej Muraszko - md
+- Tomasz Lisiecki - vc
+
+12. Piosenka dla Przyjaciela
+$:A. Brzeski|A. Brzeski
+- Maryla Rodowicz - leadvoc
+- Marcin Majerczyk - git
+- Michał Czwojda - dr
+- Maciej Muraszko - md
+- Jacek Wąsowski - solo
+- Marcin Wyrostek - acc
+
+13. Rumba o gitarze
+$:W. Łukaszewski|W. Łukaszewski
+- Maryla Rodowicz - leadvoc
+- Kamil Barański - kbd, solo
+- Marcin Majerczyk - git, solo
+- Piotr Radecki - solo
+- Łukasz Dudewicz - bs
+- Michał Czwojda - dr
+- Maciej Muraszko - md
+- Anita Konca, Natalia Kaczorowska-Głowienka - bgvoc
+- Paweł Pełczyński, Jakub Domański, Zbigniew Starosta - brass
+
+14. Tadam
+$:W. Łukaszewski|W. Łukaszewski
+- Maryla Rodowicz - leadvoc
+- Kayah - leadvoc
+- Kamil Barański - kbd
+- Marcin Majerczyk - git
+- Piotr Radecki - solo
+- Łukasz Dudewicz - bs
+- Michał Czwojda - dr
+- Maciej Muraszko - md
+- Anita Konca, Natalia Kaczorowska-Głowienka, Witek Łukaszewski - bgvoc
+- Paweł Pełczyński, Jakub Domański, Zbigniew Starosta - brass
+

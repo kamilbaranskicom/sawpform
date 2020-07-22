@@ -3,7 +3,8 @@
 function pokaz_head() {
 	echo '<head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet" href="css/sawpform_dragndrop.js">
+	<link rel="stylesheet" href="css/sawpform.css">
+	<script src="js/sawpform_dragndrop.js" defer></script>
 </head>';
 };
 
@@ -24,11 +25,10 @@ function pokaz_interfejs() {
 		<div id="stopka">
 			<input name="wszystkofile" id="wszystkofile" value="sawp_.pdf" /><br />
 			<div id="status" name"status"><span style="color:darkred">(Drag&drop chyba nie da rady.)</span></div>
-			<input name="download" id="download" type="checkbox" value=false> Ściągnąć? <span style="color:#c0c0c0;">(inaczej spróbuje otworzyć PDF w przeglądarce)</span>.<br />
-			<input name="generujodrazu" id="generujodrazu" type="checkbox" value=false> Generuj od razu po upuszczeniu?<br />
+			<label><input name="download" id="download" type="checkbox" value=false> Ściągnąć? <span style="color:#c0c0c0;">(inaczej spróbuje otworzyć PDF w przeglądarce)</span>.</label><br />
+			<label><input name="generujodrazu" id="generujodrazu" type="checkbox" value=false> Generuj od razu po upuszczeniu?</label><br />
 			<input type="submit" value="Generuj" /></form>
-		</div>
-		<script src="js/sawpform_dragndrop.js" defer />';
+		</div>';
 };
 
 function implode2($co, $ile) {	// łączy nową linią, chyba że więcej niż $ile - wtedy łączy przecinkiem.
@@ -164,21 +164,13 @@ function inicjuj_pdf() {
 	global $czcionka, $czcionkafile;
 	define('FPDF_FONTPATH', 'font/');
 
-	require_once('fpdf.php');
-	//require_once('fpdi.php');
-	require_once('src/autoload.php');	// fpdi
+	require_once('vendor/autoload.php');	// fpdi, fpdf
 
-	// initiate FPDI
-	//$pdf =& new FPDI();
 	$pdf = new \setasign\Fpdi\Fpdi();
 	$pdf->SetAutoPageBreak(0);
 
-	$czcionka = 'czcionka';
-	$czcionkafile = 'kubareczny2005.php';
 	$czcionka = 'TimesNewRomanPSMT';
 	$czcionkafile = 'timesnewromanpsmt.php';
-	// $czcionka='helvetica'; $czcionkafile='helvetica.php';
-	// $czcionka='times'; $czcionkafile='times.php';
 
 	$pdf->AddFont($czcionka, '', $czcionkafile);
 
@@ -333,8 +325,7 @@ function wypelnij_pdf($tytul, $artysta, $kompozytor, $autortekstu, $czastrwania,
 		
 	$pdf->SetXY(93,29);
 	$pdf->MultiCell(10,3,$rodzajutworu,0,C,false);
--------------------------------------------------------------------------------------------------------------------------- */
-
+	-------------------------------------------------------------------------------------------------------------------------- */
 
 	$pdf->SetXY(36, 240);
 	$pdf->MultiCell(35, 4, date('j.m.Y'), 0, C, false);
@@ -449,7 +440,7 @@ function parsuj_txt($a) {
 function wypisz_debugowo($utwory) {
 	echo '<a name="wynik"></a>';
 	echo '<h2>Dane wyjściowe (wybór)</h2>';
-	
+
 	for ($i = 0; $i <= count($utwory) - 1; $i++) {
 		echo ($i + 1) . ': ' . $utwory[$i]->tytul;
 		$utwory[$i]->wypisz();

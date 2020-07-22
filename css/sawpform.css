@@ -48,7 +48,7 @@ H1 {
 TEXTAREA#posttresc {
 	width: 100%;
 	background-color: #d0d0d0;
-	height: calc(100% - 175px);
+	height: calc(100vh - 200px);
 	min-height: 100px;
 }
 

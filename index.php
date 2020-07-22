@@ -22,7 +22,7 @@ ob_start();
 require_once('sawptxt2pdf.php');
 
 if ($_POST['posttresc']) {		// mamy co konwertować
-	echo '<html>';
+	echo '<!DOCTYPE html><html>';
 	pokaz_head();
 	echo '<body>';
 	pokaz_naglowek();
@@ -49,7 +49,7 @@ if ($_POST['posttresc']) {		// mamy co konwertować
 } else {							// nie mamy czego konwertować
 
 	header('Content-Type: text/html; charset=utf-8');
-	echo '<html>';
+	echo '<!DOCTYPE html><html>';
 	pokaz_head();
 	echo '<body>';
 	pokaz_naglowek();

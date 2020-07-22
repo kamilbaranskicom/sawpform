@@ -1,0 +1,16 @@
+{
+    "name": "kamilbaranskicom/sawpform",
+    "description": "Tool for creating SAWP (www.sawp.pl) artistic performance application PDF from txt file [PL]",
+    "type": "project",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Kamil Baranski",
+            "email": "kamilbaranski@gmail.com"
+        }
+    ],
+    "require": {
+        "setasign/fpdf": "^1.8",
+        "setasign/fpdi": "^2.3"
+    }
+}
